@@ -9,9 +9,11 @@ services:
     autoDeploy: false
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: ats_v2_db_dev # ここを修正：　該当データベースの名前
-          property: connectionString
+        sync: false # External DATABASE_URLを入力。
+      #   fromDatabase:
+      #     name: ats_v2_db_dev # ここを修正：　該当データベースの名前-> Internal DATABASE_URLだとpd_dumpでエラーが出てしまう。
+      #     property: connectionString
+      
       # pick the region closest to your database
       # For example, us-west-2 for the Oregon region
       - key: AWS_REGION
@@ -29,3 +31,6 @@ services:
       # For example, 14
       - key: POSTGRES_VERSION
         sync: false
+
+postgres://ats_v2_db_dev_0pe1_user:UvrtAUaOEMsq6AGBrYEW2yoSv3aGYFVQ@dpg-cfu1ivqrrk0c8303ej7g-a.oregon-postgres.render.com/ats_v2_db_dev_0pe1
+postgres://ats_v2_db_dev_0pe1_user:UvrtAUaOEMsq6AGBrYEW2yoSv3aGYFVQ@dpg-cfu1ivqrrk0c8303ej7g-a/ats_v2_db_dev_0pe1
