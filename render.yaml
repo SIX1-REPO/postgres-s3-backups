@@ -9,11 +9,7 @@ services:
     autoDeploy: false
     envVars:
       - key: DATABASE_URL
-        sync: false # External DATABASE_URLをBlueprint作成時に入力。
-      #   fromDatabase:
-      #     name: ats_v2_db_dev # ここを修正：　該当データベースの名前-> Internal DATABASE_URLだとpd_dumpでエラーが出てしまう。
-      #     property: connectionString
-
+        sync: false # External DATABASE_URLをBlueprint作成時に入力。-> Internal DATABASE_URLだとpd_dumpでエラーが出てしまう。
       # pick the region closest to your database
       # For example, us-west-2 for the Oregon region
       - key: AWS_REGION
@@ -21,7 +17,7 @@ services:
       # A globally unique name for your bucket
       # For example, <your-username>-<database name>-render-postgres-backups
       - key: S3_BUCKET_NAME
-        sync: false
+        sync: false # Blueprint作成時に適当に入力すると、適宜バケットを作ってくれそう。
       # Looks like "AKIAXXXXXXXXXXXXXXXX"
       - key: AWS_ACCESS_KEY_ID
         sync: false
