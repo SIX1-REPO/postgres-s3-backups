@@ -1,8 +1,8 @@
 services:
-  - name: ats_v2_db_backup
+  - name: ats_v2_db_backup #ここを修正：　適当に命名
     type: cron
     schedule: "0 3 * * *"
-    region: singapore
+    region: singapore #ここを修正：　該当DBのレギオン
     env: docker
     plan: standard
     dockerfilePath: ./Dockerfile
@@ -10,7 +10,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: ats_v2_db_dev
+          name: ats_v2_db_dev # ここを修正：　該当データベースの名前
           property: connectionString
       # pick the region closest to your database
       # For example, us-west-2 for the Oregon region
@@ -29,4 +29,3 @@ services:
       # For example, 14
       - key: POSTGRES_VERSION
         sync: false
-
