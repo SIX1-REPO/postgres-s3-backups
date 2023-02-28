@@ -9,7 +9,7 @@ services:
     autoDeploy: false
     envVars:
       - key: DATABASE_URL
-        sync: false # External DATABASE_URLを入力。
+        sync: false # External DATABASE_URLをBlueprint作成時に入力。
       #   fromDatabase:
       #     name: ats_v2_db_dev # ここを修正：　該当データベースの名前-> Internal DATABASE_URLだとpd_dumpでエラーが出てしまう。
       #     property: connectionString
