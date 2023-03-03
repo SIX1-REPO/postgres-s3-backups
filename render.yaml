@@ -17,7 +17,9 @@ services:
       # A globally unique name for your bucket
       # For example, <your-username>-<database name>-render-postgres-backups
       - key: S3_BUCKET_NAME
-        sync: false # Blueprint作成時に適当に入力すると、適宜バケットを作ってくれそう。
+        sync: false # Blueprint作成時に適当に入力すると、適宜バケットを作ってくれそう。-> 作ってくれなかった。
+      - key: S3_BUCKET_DIRECTORY
+        sync: false # Blueprint作成時にBUCKET直下の保存先ディレクトリを指定できる。
       # Looks like "AKIAXXXXXXXXXXXXXXXX"
       - key: AWS_ACCESS_KEY_ID
         sync: false
