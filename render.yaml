@@ -1,8 +1,8 @@
 services:
-  - name: ats_v2_db_backup #ここを修正：　適当に命名
+  - name: synergy_db_backup #ここを修正：　適当に命名
     type: cron
     schedule: "0 3 * * *"
-    region: singapore #ここを修正：　該当DBのレギオン
+    region: singapore #ここを修正：　Renderの該当DBのレギオン
     env: docker
     plan: standard
     dockerfilePath: ./Dockerfile
